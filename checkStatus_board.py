@@ -50,8 +50,8 @@ def runCommand(nameRequired,chRequired):
         w(":MEAS:CURR? CH1",d)
         print d.read()
     if chRequired[1] == 1:
-        w("INST CH1",d)
-        w(":OUTP? CH1",d)
+        w("INST CH2",d)
+        w(":OUTP? CH2",d)
         print d.read()
         w("VOLT?",d)
         print d.read()
@@ -60,8 +60,8 @@ def runCommand(nameRequired,chRequired):
         w(":MEAS:CURR? CH2",d)
         print d.read()
     if chRequired[2] == 1:
-        w("INST CH1",d)
-        w(":OUTP? CH1",d)
+        w("INST CH2",d)
+        w(":OUTP? CH2",d)
         print d.read()
         w("VOLT?",d)
         print d.read()
