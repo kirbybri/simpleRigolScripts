@@ -40,13 +40,38 @@ def runCommand(nameRequired,chRequired):
     #print d.getName()
 
     if chRequired[0] == 1:
-        w(":OUTP CH1,OFF",d)
+        w("INST CH1",d)
+        w(":OUTP? CH1",d)
+        print d.read()
+        w("VOLT?",d)
+        print d.read()
+        w("CURR?",d)
+        print d.read()
+        w(":MEAS:CURR? CH1",d)
+        print d.read()
     if chRequired[1] == 1:
-        w(":OUTP CH2,OFF",d)
+        w("INST CH1",d)
+        w(":OUTP? CH1",d)
+        print d.read()
+        w("VOLT?",d)
+        print d.read()
+        w("CURR?",d)
+        print d.read()
+        w(":MEAS:CURR? CH2",d)
+        print d.read()
     if chRequired[2] == 1:
-        w(":OUTP CH3,OFF",d)
+        w("INST CH1",d)
+        w(":OUTP? CH1",d)
+        print d.read()
+        w("VOLT?",d)
+        print d.read()
+        w("CURR?",d)
+        print d.read()
+        w(":MEAS:CURR? CH3",d)
+        print d.read()
 
 #define device name and required channels
+#nameRequired = "RIGOL TECHNOLOGIES,DP832,DP8C164754059,00.01.11"
 #chRequired = [1,0,0]
 runCommand("", [1,1,1] )
 #runCommand("", [1,1,1] )

@@ -1,23 +1,23 @@
-#!/usr/bin/env python2
-
-# This file is a copy of https://github.com/sbrinkmann/PyOscilloskop/blob/master/src/usbtmc.py
-
 import os
 
 class UsbTmcDriver:
-    """Simple implementation of a USBTMC device driver, in the style of visa.h"""
-
     def __init__(self, device):
         self.device = device
         self.FILE = os.open(device, os.O_RDWR)
 
-        # TODO: Test that the file opened
-
     def write(self, command):
-        os.write(self.FILE, command);
+        try:
+            os.write(self.FILE, str(command) );
+        except:
+            print("Error in USB TMC write")
 
     def read(self, length = 4000):
-        return os.read(self.FILE, length)
+        data = None
+        try:
+            data = os.read(self.FILE, length)
+        except:
+            print("Error in USB TMC read")
+        return data
 
     def getName(self):
         self.write("*IDN?")
